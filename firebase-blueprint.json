@@ -1,0 +1,117 @@
+{
+  "entities": {
+    "Character": {
+      "title": "Character",
+      "description": "A literary character profile saved in the user's book journal",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the character",
+          "maxLength": 200
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed background notes and character description",
+          "maxLength": 5000
+        },
+        "spoilers": {
+          "type": "string",
+          "description": "Hidden spoiler notes revealed on long press/click",
+          "maxLength": 5000
+        },
+        "books": {
+          "type": "array",
+          "description": "List of books this character appears in"
+        },
+        "book": {
+          "type": "string",
+          "description": "Primary book title (legacy fallback)"
+        },
+        "role": {
+          "type": "string",
+          "description": "Character archetype or role (e.g. Protagonist, Antagonist, Mentor)"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Epoch timestamp when character was created"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Epoch timestamp when character was last updated"
+        }
+      },
+      "required": ["name", "description", "createdAt", "updatedAt"]
+    },
+    "SeriesOrder": {
+      "title": "SeriesOrder",
+      "description": "Custom book ordering within a book series",
+      "type": "object",
+      "properties": {
+        "seriesName": {
+          "type": "string",
+          "description": "Name of the book series"
+        },
+        "bookOrder": {
+          "type": "array",
+          "description": "Ordered array of book titles in the series"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Epoch timestamp when order was saved"
+        }
+      },
+      "required": ["seriesName", "bookOrder", "updatedAt"]
+    },
+    "ReadingList": {
+      "title": "ReadingList",
+      "description": "User's currently reading books list",
+      "type": "object",
+      "properties": {
+        "books": {
+          "type": "array",
+          "description": "List of book titles currently being read"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Epoch timestamp when reading list was updated"
+        }
+      },
+      "required": ["books", "updatedAt"]
+    },
+    "BookSeries": {
+      "title": "BookSeries",
+      "description": "Mapping between books and their associated book series",
+      "type": "object",
+      "properties": {
+        "mapping": {
+          "type": "object",
+          "description": "Dictionary of book title to array of series names"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Epoch timestamp when mapping was updated"
+        }
+      },
+      "required": ["mapping", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/characters/{characterId}": {
+      "schema": "Character",
+      "description": "User-owned character dossier documents"
+    },
+    "/users/{userId}/seriesOrders/{seriesId}": {
+      "schema": "SeriesOrder",
+      "description": "User-owned custom series book order preferences"
+    },
+    "/users/{userId}/preferences/readingList": {
+      "schema": "ReadingList",
+      "description": "User's currently reading books preference"
+    },
+    "/users/{userId}/preferences/bookSeries": {
+      "schema": "BookSeries",
+      "description": "User's book-to-series mapping preferences"
+    }
+  }
+}

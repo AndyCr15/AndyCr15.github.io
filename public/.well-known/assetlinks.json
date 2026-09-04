@@ -1,0 +1,18 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.andycr15.characterarc",
+      "sha256_cert_fingerprints": [
+        "FD:50:66:6D:D2:B3:C3:17:E0:C6:2E:29:2C:DC:68:6E:EE:03:A6:EA:B3:BE:34:3F:88:BB:06:69:29:DA:E5:BF"
+        "6D:72:0E:9D:16:97:98:12:16:52:FC:6D:1B:F4:38:05:3C:18:A2:80:8E:9E:74:37:12:99:B9:11:8A:8E:7E:40"
+        "EA:DF:F8:FF:41:3E:C1:FB:B4:53:E3:02:CF:58:26:B6:F2:CD:BF:14:F7:4E:35:48:5D:0C:B2:54:57:32:16:58"
+        "FD:50:66:6D:D2:B3:C3:17:E0:C6:2E:29:2C:DC:68:6E:EE:03:A6:EA:B3:BE:34:3F:88:BB:06:69:29:DA:E5:BF"
+      ]
+    }
+  }
+]
